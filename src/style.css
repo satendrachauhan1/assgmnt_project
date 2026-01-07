@@ -1,3 +1,4 @@
+/* ===== GLOBAL ===== */
 * {
   box-sizing: border-box;
 }
@@ -8,7 +9,7 @@ body {
   background: #f1f3f6;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header {
   background: #2874f0;
   color: white;
@@ -28,7 +29,7 @@ header {
   cursor: pointer;
 }
 
-/* GRID CONTAINER */
+/* ===== PRODUCT GRID ===== */
 .brand-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -36,13 +37,13 @@ header {
   padding: 20px;
 }
 
-/* PRODUCT CARD */
+/* ===== PRODUCT CARD ===== */
 .brand-card {
   background: white;
-  border-radius: 6px;
-  padding: 12px;
+  border-radius: 10px;
+  padding: 15px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
   transition: transform 0.2s ease;
 }
 
@@ -50,35 +51,40 @@ header {
   transform: translateY(-4px);
 }
 
-/* IMAGE FIX (MOST IMPORTANT PART) */
-.product-img {
+/* ===== IMAGE (FIXED ISSUE) ===== */
+.product-image {
   width: 100%;
-  height: 140px;
-  object-fit: contain;
+  height: 160px;
+  object-fit: contain; /* 🔑 THIS FIXES STRETCHING */
   margin-bottom: 10px;
 }
 
-/* TEXT */
+/* ===== TEXT ===== */
 .brand-card h3 {
   margin: 8px 0 4px;
   font-size: 16px;
 }
 
 .brand-card p {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-size: 14px;
   color: #555;
 }
 
-/* CARD FOOTER */
-.card-footer {
+.brand-card h4 {
+  margin: 6px 0 10px;
+  font-size: 15px;
+}
+
+/* ===== CARD FOOTER / QTY ===== */
+.qty-box {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
-.card-footer button {
+.qty-box button {
   background: #2874f0;
   color: white;
   border: none;
@@ -88,20 +94,12 @@ header {
   cursor: pointer;
 }
 
-.card-footer button:hover {
-  background: #1b5ec9;
+.qty-box button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
-/* COUNT BADGE */
-.item-count {
-  background: #ff6b35;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: bold;
-}
-/* ---------- FOOTER ---------- */
+/* ===== FOOTER ===== */
 .footer {
   background: #172337;
   color: white;
@@ -137,24 +135,41 @@ header {
   padding: 12px;
   font-size: 13px;
 }
-/* ===== Place Order Button ===== */
+
+/* ===== CART ===== */
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cart-total {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* ===== PLACE ORDER BUTTON ===== */
 .place-order-btn {
+  width: 100%;
   background-color: #28a745;
   color: #fff;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 6px;
+  padding: 12px;
   font-size: 16px;
   font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
   cursor: pointer;
-  margin-top: 20px;
+  transition: transform 0.15s ease, background-color 0.2s ease;
 }
 
 .place-order-btn:hover {
   background-color: #218838;
+  transform: scale(1.02);
 }
 
-/* ===== Address Page UI ===== */
+/* ===== ADDRESS PAGE ===== */
 .address-wrapper {
   display: flex;
   justify-content: center;
@@ -194,6 +209,14 @@ header {
   font-size: 14px;
 }
 
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+/* ===== CONFIRM BUTTON ===== */
 .confirm-btn {
   width: 100%;
   background-color: #28a745;
@@ -207,98 +230,18 @@ header {
   cursor: pointer;
 }
 
-.confirm-btn:hover {
-  background-color: #218838;
-}
-
-.cancel-btn {
-  width: 100%;
-  background: transparent;
-  border: none;
-  color: #555;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.error-text {
-  color: red;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-/* ===== Order Summary ===== */
-.order-summary {
-  background: #f8f9fa;
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-.order-summary h4 {
-  margin-bottom: 8px;
-}
-
-/* ===== Button States ===== */
 .confirm-btn:disabled {
   background-color: #94d3a2;
   cursor: not-allowed;
 }
 
-.confirm-btn.loading {
-  animation: pulse 0.6s infinite alternate;
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  to {
-    transform: scale(1.03);
-    opacity: 1;
-  }
-}
-
-/* Smooth input focus */
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #28a745;
-  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
-}
-.cart-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.qty-box button {
-  padding: 4px 10px;
-  font-size: 16px;
-  margin: 0 6px;
-}
-
-.cart-total {
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.place-order-btn {
-  width: 100%;
-  background-color: #28a745;
-  color: #fff;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  margin-top: 15px;
-  cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.2s ease;
-}
-
-.place-order-btn:hover {
+.confirm-btn:hover {
   background-color: #218838;
-  transform: scale(1.02);
+}
+
+/* ===== ERROR TEXT ===== */
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
 }

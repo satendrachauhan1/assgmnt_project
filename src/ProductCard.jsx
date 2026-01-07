@@ -12,12 +12,14 @@ function ProductCard({ product, quantity, onAdd, onRemove }) {
   return (
     <div className="brand-card">
       <img
-        src={imageUrl}
-        alt={product.name}
-        onError={(e) => {
-          e.target.src = fallbackUrl;
-        }}
-      />
+  src={imageUrl}
+  alt={product.name}
+  className="product-image"
+  onError={(e) => {
+    e.target.src = fallbackUrl;
+  }}
+/>
+
 
       <h3>{product.name}</h3>
       <p>{product.range}</p>
