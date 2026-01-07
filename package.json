@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://satendrachauhan1.github.io/assgmnt_project",
+  "homepage": "https://github.com/santosh9849/assgmnt_project.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
